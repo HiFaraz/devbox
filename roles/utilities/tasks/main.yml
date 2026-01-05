@@ -1,0 +1,15 @@
+---
+- name: Install system utilities
+  apt:
+    name:
+      - cron
+      - htop
+      - tmux
+      - jq
+      - tree
+      - unzip
+      - zip
+      - rsync
+      - lsof
+      - strace
+    state: present

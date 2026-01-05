@@ -1,0 +1,12 @@
+---
+- name: Install rbenv
+  git:
+    repo: https://github.com/rbenv/rbenv.git
+    dest: "{{ ansible_env.HOME }}/.rbenv"
+    version: master
+
+- name: Install ruby-build plugin
+  git:
+    repo: https://github.com/rbenv/ruby-build.git
+    dest: "{{ ansible_env.HOME }}/.rbenv/plugins/ruby-build"
+    version: master

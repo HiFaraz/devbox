@@ -1,0 +1,35 @@
+---
+- name: Install editors and dev tools
+  apt:
+    name:
+      - vim
+      - neovim
+      - nano
+      - ripgrep
+      - fd-find
+      - fzf
+      - shellcheck
+    state: present
+
+# VS Code - requires Microsoft repository
+- name: Add Microsoft GPG key
+  shell: |
+    curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o /etc/apt/keyrings/microsoft.gpg
+    chmod 644 /etc/apt/keyrings/microsoft.gpg
+  args:
+    creates: /etc/apt/keyrings/microsoft.gpg
+
+- name: Add VS Code repository
+  copy:
+    content: |
+      deb [arch=arm64 signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/code stable main
+    dest: /etc/apt/sources.list.d/vscode.list
+
+- name: Update apt cache for VS Code
+  apt:
+    update_cache: yes
+
+- name: Install code (VS Code)
+  apt:
+    name: code
+    state: present

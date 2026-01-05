@@ -1,0 +1,21 @@
+---
+- name: Install openssh
+  apt:
+    name:
+      - openssh-client
+      - openssh-server
+    state: present
+
+- name: Install networking tools
+  apt:
+    name:
+      - curl
+      - wget
+      - ca-certificates
+      - gnupg
+      - ufw
+      - net-tools
+      - dnsutils
+      - iputils-ping
+      - traceroute
+    state: present

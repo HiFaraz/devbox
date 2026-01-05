@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dpkg:*)",
+      "Bash(rpm -q:*)",
+      "Bash(chmod:*)",
+      "Bash(./test-install-ansible.sh)",
+      "Bash(./install-ansible.sh:*)",
+      "Bash(./test-makefile.sh)",
+      "Bash(make test:*)",
+      "Bash(./test-playbook.sh:*)",
+      "Bash(make test-integration:*)",
+      "Bash(./test-integration.sh:*)",
+      "Bash([ -s \"$HOME/.nvm/nvm.sh\" ])",
+      "Bash(git --version)",
+      "Bash(./tests/run-smoke.sh:*)",
+      "Bash(./tests/test-docker.sh)",
+      "Bash(./tests/smoke-docker.sh:*)",
+      "Bash(ansible-playbook:*)",
+      "Bash(./tests/test-networking.sh:*)",
+      "Bash(./tests/smoke-networking.sh:*)",
+      "Bash(./tests/test-utilities.sh:*)",
+      "Bash(./tests/smoke-utilities.sh)",
+      "Bash(./tests/test-pyenv.sh:*)",
+      "Bash(./tests/smoke-pyenv.sh:*)",
+      "Bash(./tests/run-unit.sh:*)",
+      "Bash(./tests/smoke-databases.sh:*)",
+      "Bash(./tests/smoke-editors.sh:*)",
+      "Bash(sudo apt update:*)",
+      "Bash(./tests/smoke-cloud.sh:*)",
+      "Bash(./tests/test-editors.sh:*)",
+      "Bash(code --version:*)",
+      "Bash(./tests/test-cloud.sh:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

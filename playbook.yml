@@ -1,0 +1,26 @@
+---
+- name: System packages (requires sudo)
+  hosts: localhost
+  connection: local
+  become: true
+  roles:
+    - base
+    - libraries
+    - networking
+    - utilities
+    - databases
+    - editors
+    - cloud
+    - docker
+
+- name: User packages (no sudo)
+  hosts: localhost
+  connection: local
+  become: false
+  roles:
+    - nvm
+    - pyenv
+    - rbenv
+    - rustup
+    - goenv
+    - sdkman

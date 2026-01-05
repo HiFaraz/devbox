@@ -1,0 +1,9 @@
+---
+- name: Install database clients
+  apt:
+    name:
+      - postgresql-client
+      - default-mysql-client
+      - redis-tools
+      - sqlite3
+    state: present

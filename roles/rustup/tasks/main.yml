@@ -1,0 +1,7 @@
+---
+- name: Install rustup
+  shell: |
+    export HOME={{ ansible_env.HOME }}
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
+  args:
+    creates: "{{ ansible_env.HOME }}/.cargo/bin/rustup"

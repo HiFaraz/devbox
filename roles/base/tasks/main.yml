@@ -1,0 +1,28 @@
+---
+- name: Install git
+  apt:
+    name: git
+    state: present
+
+- name: Install build-essential
+  apt:
+    name: build-essential
+    state: present
+
+- name: Install cmake
+  apt:
+    name: cmake
+    state: present
+
+- name: Install pkg-config
+  apt:
+    name: pkg-config
+    state: present
+
+- name: Install autoconf automake libtool
+  apt:
+    name:
+      - autoconf
+      - automake
+      - libtool
+    state: present
