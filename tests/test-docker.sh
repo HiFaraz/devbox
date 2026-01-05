@@ -23,3 +23,10 @@ else
     echo "FAIL: docker role does not reference docker-compose-plugin"
     exit 1
 fi
+
+if grep -q "groups: docker" roles/docker/tasks/main.yml; then
+    echo "PASS: docker role adds user to docker group"
+else
+    echo "FAIL: docker role does not add user to docker group"
+    exit 1
+fi
