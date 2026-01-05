@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Tests for pyenv role
 
 echo "=== Pyenv Role Tests ==="

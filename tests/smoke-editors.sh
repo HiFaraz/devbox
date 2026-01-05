@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Smoke tests for editors role
 
 echo "=== Editors Role Smoke Tests ==="

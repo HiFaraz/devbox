@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Smoke tests for base role
 
 echo "=== Base Role Smoke Tests ==="

@@ -1,10 +1,10 @@
 #!/bin/bash
 # Smoke tests for rustup role
+set -e
 
 echo "=== Rustup Role Smoke Tests ==="
 
-export HOME=/home/faraz
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="${HOME}/.cargo/bin:$PATH"
 
 rustup --version
 if [ $? -ne 0 ]; then

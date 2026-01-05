@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Smoke tests for libraries role
 
 echo "=== Libraries Role Smoke Tests ==="

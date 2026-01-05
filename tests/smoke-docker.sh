@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Smoke tests for docker role
 
 echo "=== Docker Role Smoke Tests ==="

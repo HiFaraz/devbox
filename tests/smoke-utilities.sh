@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Smoke tests for utilities role
 
 echo "=== Utilities Role Smoke Tests ==="

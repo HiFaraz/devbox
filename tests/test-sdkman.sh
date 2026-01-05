@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Tests for sdkman role
 
 echo "=== SDKMAN Role Tests ==="

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Tests for editors role
 
 echo "=== Editors Role Tests ==="

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Tests for rustup role
 
 echo "=== Rustup Role Tests ==="

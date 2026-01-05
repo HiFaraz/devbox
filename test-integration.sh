@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Preflight: check passwordless sudo
 sudo -n true 2>/dev/null
@@ -25,8 +26,7 @@ fi
 echo "PASS: git --version works"
 
 # Smoke test: nvm --version works
-export HOME=/home/faraz
-export NVM_DIR="$HOME/.config/nvm"
+export NVM_DIR="${HOME}/.config/nvm"
 . "$NVM_DIR/nvm.sh"
 nvm --version
 if [ $? -ne 0 ]; then

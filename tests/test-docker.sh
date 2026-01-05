@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Tests for docker role
 
 echo "=== Docker Role Tests ==="

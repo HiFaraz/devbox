@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Tests for databases role
 
 echo "=== Databases Role Tests ==="

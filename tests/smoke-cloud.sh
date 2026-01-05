@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Smoke tests for cloud role
 
 echo "=== Cloud Role Smoke Tests ==="

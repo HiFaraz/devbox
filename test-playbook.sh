@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Test: Playbook exists and includes roles
 
 echo "=== Playbook Structure Tests ==="

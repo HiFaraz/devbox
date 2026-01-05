@@ -1,7 +1,7 @@
 ---
 - name: Install nvm
   shell: |
-    export HOME=/home/faraz
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
   args:
-    creates: "/home/faraz/.config/nvm/nvm.sh"
+    creates: "{{ ansible_env.HOME }}/.config/nvm/nvm.sh"
+  changed_when: false

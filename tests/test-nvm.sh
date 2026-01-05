@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Tests for nvm role
 
 echo "=== NVM Role Tests ==="

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Tests for networking role
 
 echo "=== Networking Role Tests ==="

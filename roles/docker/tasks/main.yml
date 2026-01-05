@@ -39,7 +39,7 @@
 - name: Add Docker repository
   copy:
     content: |
-      deb [arch={{ arch_result.stdout }} signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian bookworm stable
+      deb [arch={{ arch_result.stdout }} signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable
     dest: /etc/apt/sources.list.d/docker.list
 
 - name: Update apt cache

@@ -1,10 +1,10 @@
 #!/bin/bash
 # Smoke tests for goenv role
+set -e
 
 echo "=== Goenv Role Smoke Tests ==="
 
-export HOME=/home/faraz
-export GOENV_ROOT="$HOME/.goenv"
+export GOENV_ROOT="${HOME}/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 
 goenv --version

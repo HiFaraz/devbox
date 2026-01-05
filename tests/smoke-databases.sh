@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Smoke tests for databases role
 
 echo "=== Databases Role Smoke Tests ==="

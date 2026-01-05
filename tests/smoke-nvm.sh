@@ -1,10 +1,10 @@
 #!/bin/bash
 # Smoke tests for nvm role
+set -e
 
 echo "=== NVM Role Smoke Tests ==="
 
-export HOME=/home/faraz
-export NVM_DIR="$HOME/.config/nvm"
+export NVM_DIR="${HOME}/.config/nvm"
 . "$NVM_DIR/nvm.sh"
 
 nvm --version

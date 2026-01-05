@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Tests for utilities role
 
 echo "=== Utilities Role Tests ==="

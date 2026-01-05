@@ -1,8 +1,8 @@
 ---
 - name: Install sdkman
   shell: |
-    export HOME={{ ansible_env.HOME }}
     export SDKMAN_DIR="{{ ansible_env.HOME }}/.sdkman"
     curl -s "https://get.sdkman.io?rcupdate=false" | bash
   args:
     creates: "{{ ansible_env.HOME }}/.sdkman/bin/sdkman-init.sh"
+  changed_when: false

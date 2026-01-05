@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Tests for base role
 
 echo "=== Base Role Tests ==="

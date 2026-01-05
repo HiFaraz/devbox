@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Tests for rbenv role
 
 echo "=== Rbenv Role Tests ==="

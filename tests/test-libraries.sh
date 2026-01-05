@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Tests for libraries role
 
 echo "=== Libraries Role Tests ==="

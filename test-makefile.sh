@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Test: Makefile exists
 if [ ! -f "Makefile" ]; then
     echo "FAIL: Makefile does not exist"

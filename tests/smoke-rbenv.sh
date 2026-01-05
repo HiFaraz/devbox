@@ -1,10 +1,10 @@
 #!/bin/bash
 # Smoke tests for rbenv role
+set -e
 
 echo "=== Rbenv Role Smoke Tests ==="
 
-export HOME=/home/faraz
-export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="${HOME}/.rbenv/bin:$PATH"
 
 rbenv --version
 if [ $? -ne 0 ]; then

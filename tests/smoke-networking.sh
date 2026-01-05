@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Smoke tests for networking role
 
 echo "=== Networking Role Smoke Tests ==="

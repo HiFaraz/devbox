@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 DRY_RUN=false
 [ "$1" = "--dry-run" ] && DRY_RUN=true
 

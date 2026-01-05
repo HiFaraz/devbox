@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Test: Script exists
 if [ ! -f "./install-ansible.sh" ]; then
     echo "FAIL: Script does not exist"

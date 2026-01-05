@@ -1,10 +1,10 @@
 #!/bin/bash
 # Smoke tests for sdkman role
+set -e
 
 echo "=== SDKMAN Role Smoke Tests ==="
 
-export HOME=/home/faraz
-export SDKMAN_DIR="$HOME/.sdkman"
+export SDKMAN_DIR="${HOME}/.sdkman"
 
 if [ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]; then
     echo "PASS: sdkman installed"

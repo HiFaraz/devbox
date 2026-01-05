@@ -1,0 +1,32 @@
+# Ansible
+*.retry
+.ansible/
+roles/external/
+
+# Secrets and credentials
+*.pem
+*.key
+*.crt
+.env
+.env.*
+**/secrets.yml
+**/vault.yml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Cache
+.cache/
+__pycache__/
+*.pyc

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Tests for goenv role
 
 echo "=== Goenv Role Tests ==="

@@ -32,7 +32,9 @@
       "Bash(code --version:*)",
       "Bash(./tests/test-cloud.sh:*)",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nInitial commit: Ansible devbox provisioning\n\nComplete devbox setup for Chrome OS Linux VM \\(Debian 12, ARM64\\):\n\nRoles:\n- base: git, build-essential, cmake, pkg-config, autoconf\n- libraries: libssl-dev, libffi-dev, zlib1g-dev, etc.\n- networking: openssh, curl, wget, ufw, net-tools, dnsutils\n- utilities: htop, tmux, jq, tree, rsync, lsof, strace\n- databases: postgresql-client, mysql-client, redis-tools, sqlite3\n- editors: vim, neovim, nano, VS Code, ripgrep, fd-find, fzf, shellcheck\n- cloud: kubectl, helm, terraform, aws-cli, gcloud-cli, gh\n- docker: Docker Engine 29.x with Compose V2 plugin\n- nvm, pyenv, rbenv, rustup, goenv, sdkman: version managers\n\nFeatures:\n- TDD with unit tests and smoke tests for every role\n- Modular Ansible role structure\n- Passwordless sudo preflight checks\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(grep:*)"
     ]
   }
 }

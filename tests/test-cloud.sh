@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Tests for cloud role
 
 echo "=== Cloud Role Tests ==="
