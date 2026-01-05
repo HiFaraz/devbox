@@ -4,23 +4,23 @@
   connection: local
   become: true
   roles:
-    - base
-    - libraries
-    - networking
-    - utilities
-    - databases
-    - editors
-    - cloud
-    - docker
+    - { role: base, tags: ['base', 'system'] }
+    - { role: libraries, tags: ['libraries', 'system'] }
+    - { role: networking, tags: ['networking', 'system'] }
+    - { role: utilities, tags: ['utilities', 'system'] }
+    - { role: databases, tags: ['databases', 'system'] }
+    - { role: editors, tags: ['editors', 'system'] }
+    - { role: cloud, tags: ['cloud', 'system'] }
+    - { role: docker, tags: ['docker', 'system'] }
 
 - name: User packages (no sudo)
   hosts: localhost
   connection: local
   become: false
   roles:
-    - nvm
-    - pyenv
-    - rbenv
-    - rustup
-    - goenv
-    - sdkman
+    - { role: nvm, tags: ['nvm', 'user', 'languages'] }
+    - { role: pyenv, tags: ['pyenv', 'user', 'languages'] }
+    - { role: rbenv, tags: ['rbenv', 'user', 'languages'] }
+    - { role: rustup, tags: ['rustup', 'user', 'languages'] }
+    - { role: goenv, tags: ['goenv', 'user', 'languages'] }
+    - { role: sdkman, tags: ['sdkman', 'user', 'languages'] }

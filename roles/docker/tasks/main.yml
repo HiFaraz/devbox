@@ -55,3 +55,9 @@
       - docker-buildx-plugin
       - docker-compose-plugin
     state: present
+
+- name: Add user to docker group
+  user:
+    name: "{{ ansible_env.USER }}"
+    groups: docker
+    append: yes
