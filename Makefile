@@ -1,6 +1,11 @@
-.PHONY: all test test-integration
-all:
+.PHONY: all ansible install test test-integration
+all: ansible install
+
+ansible:
 	./install-ansible.sh
+
+install:
+	ansible-playbook playbook.yml
 
 test:
 	./test-install-ansible.sh
