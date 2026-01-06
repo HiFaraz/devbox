@@ -28,3 +28,11 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 echo "PASS: docker compose v2 works"
+
+# Test docker can run containers
+docker run hello-world
+if [ $? -ne 0 ]; then
+    echo "FAIL: docker run hello-world failed"
+    exit 1
+fi
+echo "PASS: docker can run containers"

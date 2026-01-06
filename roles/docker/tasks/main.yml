@@ -58,6 +58,6 @@
 
 - name: Add user to docker group
   user:
-    name: "{{ ansible_env.USER }}"
+    name: "{{ ansible_env.SUDO_USER | default(ansible_env.USER) }}"
     groups: docker
     append: yes
