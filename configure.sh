@@ -93,11 +93,20 @@ else
     if chsh -s "$ZSH_PATH" 2>/dev/null; then
         echo "DONE: default shell set to zsh (logout required to take effect)"
     else
-        echo "NOTE: Could not set default shell automatically (password may be required)"
-        echo "To set zsh as your default shell manually, run:"
-        echo "  chsh -s $ZSH_PATH"
-        echo "Or add this to your ~/.bashrc:"
-        echo "  [ -n \"\$BASH_VERSION\" ] && exec zsh"
+        echo "NOTE: Could not set default shell with chsh (password may be required)"
+        echo "Adding zsh auto-launch to ~/.bashrc instead..."
+
+        # Add auto-launch to bashrc if not already present
+        BASHRC="$HOME/.bashrc"
+        if grep -q "exec zsh" "$BASHRC" 2>/dev/null; then
+            echo "SKIP: zsh auto-launch already in ~/.bashrc"
+        else
+            echo "" >> "$BASHRC"
+            echo "# Auto-launch zsh" >> "$BASHRC"
+            echo '[ -n "$BASH_VERSION" ] && exec zsh' >> "$BASHRC"
+            echo "DONE: Added zsh auto-launch to ~/.bashrc"
+            echo "Start a new terminal or run: source ~/.bashrc"
+        fi
     fi
 fi
 

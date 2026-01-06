@@ -73,3 +73,11 @@ else
     echo "FAIL: configure.sh does not set default shell to zsh"
     exit 1
 fi
+
+# Test: configure.sh adds zsh auto-launch to bashrc
+if grep -q '>> "\$BASHRC"' configure.sh; then
+    echo "PASS: configure.sh adds zsh auto-launch to bashrc"
+else
+    echo "FAIL: configure.sh does not add zsh auto-launch to bashrc"
+    exit 1
+fi
