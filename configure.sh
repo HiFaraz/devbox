@@ -4,21 +4,41 @@ set -e
 echo "=== Configuration ==="
 
 # Git user configuration
-GIT_USER_NAME=$(git config --global user.name 2>/dev/null || echo "")
-GIT_USER_EMAIL=$(git config --global user.email 2>/dev/null || echo "")
+CURRENT_USER_NAME=$(git config --global user.name 2>/dev/null || echo "")
+CURRENT_USER_EMAIL=$(git config --global user.email 2>/dev/null || echo "")
 
-if [ -z "$GIT_USER_NAME" ]; then
-    echo "Git user.name not configured"
-    echo "Run: git config --global user.name \"Your Name\""
+# Prompt for user.name
+if [ -n "$CURRENT_USER_NAME" ]; then
+    echo "Current git user.name: $CURRENT_USER_NAME"
+    read -p "Keep this value? [Y/n]: " KEEP_NAME
+    if [ "$KEEP_NAME" = "n" ] || [ "$KEEP_NAME" = "N" ]; then
+        read -p "Enter new git user.name: " NEW_USER_NAME
+        git config --global user.name "$NEW_USER_NAME"
+        echo "Git user.name set to: $NEW_USER_NAME"
+    else
+        echo "Git user.name unchanged"
+    fi
 else
-    echo "Git user.name: $GIT_USER_NAME"
+    read -p "Enter git user.name: " NEW_USER_NAME
+    git config --global user.name "$NEW_USER_NAME"
+    echo "Git user.name set to: $NEW_USER_NAME"
 fi
 
-if [ -z "$GIT_USER_EMAIL" ]; then
-    echo "Git user.email not configured"
-    echo "Run: git config --global user.email \"your.email@example.com\""
+# Prompt for user.email
+if [ -n "$CURRENT_USER_EMAIL" ]; then
+    echo "Current git user.email: $CURRENT_USER_EMAIL"
+    read -p "Keep this value? [Y/n]: " KEEP_EMAIL
+    if [ "$KEEP_EMAIL" = "n" ] || [ "$KEEP_EMAIL" = "N" ]; then
+        read -p "Enter new git user.email: " NEW_USER_EMAIL
+        git config --global user.email "$NEW_USER_EMAIL"
+        echo "Git user.email set to: $NEW_USER_EMAIL"
+    else
+        echo "Git user.email unchanged"
+    fi
 else
-    echo "Git user.email: $GIT_USER_EMAIL"
+    read -p "Enter git user.email: " NEW_USER_EMAIL
+    git config --global user.email "$NEW_USER_EMAIL"
+    echo "Git user.email set to: $NEW_USER_EMAIL"
 fi
 
 echo ""

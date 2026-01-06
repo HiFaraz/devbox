@@ -18,19 +18,27 @@ if [ ! -x "configure.sh" ]; then
 fi
 echo "PASS: configure.sh is executable"
 
-# Test: configure.sh checks git user.name
-if grep -q "git config.*user.name" configure.sh; then
-    echo "PASS: configure.sh checks git user.name"
+# Test: configure.sh prompts for git user.name
+if grep -q "read.*user.name\|read.*USER_NAME" configure.sh; then
+    echo "PASS: configure.sh prompts for git user.name"
 else
-    echo "FAIL: configure.sh does not check git user.name"
+    echo "FAIL: configure.sh does not prompt for git user.name"
     exit 1
 fi
 
-# Test: configure.sh checks git user.email
-if grep -q "git config.*user.email" configure.sh; then
-    echo "PASS: configure.sh checks git user.email"
+# Test: configure.sh prompts for git user.email
+if grep -q "read.*user.email\|read.*USER_EMAIL" configure.sh; then
+    echo "PASS: configure.sh prompts for git user.email"
 else
-    echo "FAIL: configure.sh does not check git user.email"
+    echo "FAIL: configure.sh does not prompt for git user.email"
+    exit 1
+fi
+
+# Test: configure.sh sets git config
+if grep -q "git config --global user.name" configure.sh && grep -q "git config --global user.email" configure.sh; then
+    echo "PASS: configure.sh sets git config"
+else
+    echo "FAIL: configure.sh does not set git config"
     exit 1
 fi
 
