@@ -65,3 +65,11 @@ else
     echo "FAIL: configure.sh does not set powerline theme"
     exit 1
 fi
+
+# Test: configure.sh sets default shell to zsh
+if grep -q "chsh -s" configure.sh; then
+    echo "PASS: configure.sh sets default shell to zsh"
+else
+    echo "FAIL: configure.sh does not set default shell to zsh"
+    exit 1
+fi

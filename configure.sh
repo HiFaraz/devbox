@@ -83,5 +83,15 @@ else
     echo "SKIP: .zshrc not found (oh-my-zsh not installed)"
 fi
 
+# Set zsh as default shell
+CURRENT_SHELL=$(getent passwd "$USER" | cut -d: -f7)
+ZSH_PATH=$(which zsh)
+if [ "$CURRENT_SHELL" = "$ZSH_PATH" ]; then
+    echo "SKIP: default shell already set to zsh"
+else
+    chsh -s "$ZSH_PATH"
+    echo "DONE: default shell set to zsh (logout required to take effect)"
+fi
+
 echo ""
 echo "Configuration complete!"
