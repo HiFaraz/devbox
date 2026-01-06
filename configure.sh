@@ -89,8 +89,16 @@ ZSH_PATH=$(which zsh)
 if [ "$CURRENT_SHELL" = "$ZSH_PATH" ]; then
     echo "SKIP: default shell already set to zsh"
 else
-    chsh -s "$ZSH_PATH"
-    echo "DONE: default shell set to zsh (logout required to take effect)"
+    echo "Setting default shell to zsh..."
+    if chsh -s "$ZSH_PATH" 2>/dev/null; then
+        echo "DONE: default shell set to zsh (logout required to take effect)"
+    else
+        echo "NOTE: Could not set default shell automatically (password may be required)"
+        echo "To set zsh as your default shell manually, run:"
+        echo "  chsh -s $ZSH_PATH"
+        echo "Or add this to your ~/.bashrc:"
+        echo "  [ -n \"\$BASH_VERSION\" ] && exec zsh"
+    fi
 fi
 
 echo ""
