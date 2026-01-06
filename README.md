@@ -5,17 +5,17 @@ Ansible-based devbox provisioning for Chrome OS Linux VM (Debian 12 Bookworm, AR
 ## Quick Start
 
 ```bash
-# Install Ansible
-./install-ansible.sh
+# Full setup (install Ansible, provision system, configure)
+make
 
-# Run tests (unit tests only, no sudo required)
-make test
+# Or run each stage individually:
+make ansible    # Install Ansible
+make install    # Provision the system (requires sudo)
+make configure  # Configure git, SSH keys, GitHub CLI (interactive)
 
-# Provision the system (requires sudo)
-ansible-playbook playbook.yml
-
-# Run smoke tests to verify installation
-./tests/run-smoke.sh
+# Run tests
+make test              # Unit tests only (fast, no sudo required)
+make test-integration  # Full integration test (runs playbook + smoke tests)
 ```
 
 ## Philosophy
@@ -108,15 +108,24 @@ rustup default stable
 sdk install java
 ```
 
-## Testing
+## Make Commands
 
-```bash
-# Unit tests only (fast, no installation required)
-make test
+| Command | Description |
+|---------|-------------|
+| `make` | Full setup: install Ansible, provision system, configure |
+| `make ansible` | Install Ansible only |
+| `make install` | Run playbook to provision system (requires sudo) |
+| `make configure` | Interactive configuration: git user/email, SSH keys, GitHub CLI |
+| `make test` | Run unit tests (fast, no installation required) |
+| `make test-integration` | Full integration test (runs playbook + smoke tests) |
 
-# Full integration test (runs playbook + smoke tests)
-make test-integration
-```
+## Configuration Stage
+
+After provisioning with `make install`, run `make configure` to set up:
+
+- **Git user configuration**: Prompts for `user.name` and `user.email`, or keeps existing values
+- **SSH key for GitHub**: Generates ED25519 key if needed, displays public key to add to GitHub
+- **GitHub CLI authentication**: Checks if `gh` is authenticated
 
 ## Implementation Notes
 
