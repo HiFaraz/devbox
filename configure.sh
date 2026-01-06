@@ -3,6 +3,26 @@ set -e
 
 echo "=== Configuration ==="
 
+# Git user configuration
+GIT_USER_NAME=$(git config --global user.name 2>/dev/null || echo "")
+GIT_USER_EMAIL=$(git config --global user.email 2>/dev/null || echo "")
+
+if [ -z "$GIT_USER_NAME" ]; then
+    echo "Git user.name not configured"
+    echo "Run: git config --global user.name \"Your Name\""
+else
+    echo "Git user.name: $GIT_USER_NAME"
+fi
+
+if [ -z "$GIT_USER_EMAIL" ]; then
+    echo "Git user.email not configured"
+    echo "Run: git config --global user.email \"your.email@example.com\""
+else
+    echo "Git user.email: $GIT_USER_EMAIL"
+fi
+
+echo ""
+
 # SSH key for GitHub
 SSH_KEY="$HOME/.ssh/id_ed25519"
 if [ -f "$SSH_KEY" ]; then
