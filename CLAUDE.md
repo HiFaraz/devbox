@@ -8,9 +8,10 @@ This is a system provisioning project using Ansible playbooks to install and con
 
 ## Commands
 
-- `make` - installs Ansible and runs the playbook (full setup)
+- `make` - full setup (installs Ansible, runs playbook, configures system)
 - `make ansible` - installs Ansible only
 - `make install` - runs the playbook only
+- `make configure` - post-installation configuration (SSH keys, GitHub CLI)
 - `make test` - runs unit tests (fast, no side effects)
 - `make test-integration` - runs playbook and smoke tests actual installations
 
