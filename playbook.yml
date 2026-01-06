@@ -20,6 +20,7 @@
   vars:
     user_home: "{{ lookup('env', 'HOME') }}"
   roles:
+    - { role: omz, tags: ['omz', 'user', 'shell'] }
     - { role: nvm, tags: ['nvm', 'user', 'languages'] }
     - { role: pyenv, tags: ['pyenv', 'user', 'languages'] }
     - { role: rbenv, tags: ['rbenv', 'user', 'languages'] }

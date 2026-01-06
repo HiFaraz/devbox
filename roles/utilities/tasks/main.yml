@@ -12,4 +12,6 @@
       - rsync
       - lsof
       - strace
+      - zsh
+      - fonts-powerline
     state: present

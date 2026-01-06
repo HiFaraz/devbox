@@ -43,3 +43,11 @@ else
     echo "FAIL: sdkman role does not use user home variable"
     exit 1
 fi
+
+# Test: omz role uses user home variable
+if grep -q "ansible_user_dir\|lookup.*SUDO_USER\|user_home" roles/omz/tasks/main.yml; then
+    echo "PASS: omz role uses user home variable"
+else
+    echo "FAIL: omz role does not use user home variable"
+    exit 1
+fi

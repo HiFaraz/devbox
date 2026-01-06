@@ -69,4 +69,19 @@ else
 fi
 
 echo ""
+
+# Configure zsh powerline theme
+ZSHRC="$HOME/.zshrc"
+if [ -f "$ZSHRC" ]; then
+    if grep -q '^ZSH_THEME="agnoster"' "$ZSHRC"; then
+        echo "SKIP: zsh theme already set to agnoster (powerline)"
+    else
+        sed -i 's/^ZSH_THEME=.*/ZSH_THEME="agnoster"/' "$ZSHRC"
+        echo "DONE: zsh theme set to agnoster (powerline)"
+    fi
+else
+    echo "SKIP: .zshrc not found (oh-my-zsh not installed)"
+fi
+
+echo ""
 echo "Configuration complete!"

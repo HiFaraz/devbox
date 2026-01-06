@@ -1,0 +1,7 @@
+---
+- name: Install oh-my-zsh
+  shell: |
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  args:
+    creates: "{{ user_home }}/.oh-my-zsh/oh-my-zsh.sh"
+  changed_when: false

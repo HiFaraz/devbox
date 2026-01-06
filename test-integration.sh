@@ -162,3 +162,18 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 echo "PASS: ssh -V works"
+
+# Smoke test: oh-my-zsh installed
+if [ ! -f "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]; then
+    echo "FAIL: oh-my-zsh not installed"
+    exit 1
+fi
+echo "PASS: oh-my-zsh installed"
+
+# Smoke test: fonts-powerline installed
+dpkg -s fonts-powerline >/dev/null 2>&1
+if [ $? -ne 0 ]; then
+    echo "FAIL: fonts-powerline not installed"
+    exit 1
+fi
+echo "PASS: fonts-powerline installed"

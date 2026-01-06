@@ -66,3 +66,17 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 echo "PASS: strace works"
+
+zsh --version >/dev/null 2>&1
+if [ $? -ne 0 ]; then
+    echo "FAIL: zsh --version failed"
+    exit 1
+fi
+echo "PASS: zsh works"
+
+dpkg -s fonts-powerline >/dev/null 2>&1
+if [ $? -ne 0 ]; then
+    echo "FAIL: fonts-powerline not installed"
+    exit 1
+fi
+echo "PASS: fonts-powerline installed"

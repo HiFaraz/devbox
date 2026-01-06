@@ -57,3 +57,11 @@ else
     echo "FAIL: configure.sh does not check GitHub CLI auth"
     exit 1
 fi
+
+# Test: configure.sh sets powerline theme
+if grep -q "ZSH_THEME.*agnoster\|powerline" configure.sh; then
+    echo "PASS: configure.sh sets powerline theme"
+else
+    echo "FAIL: configure.sh does not set powerline theme"
+    exit 1
+fi

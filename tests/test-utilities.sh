@@ -10,7 +10,7 @@ if [ ! -f "roles/utilities/tasks/main.yml" ]; then
 fi
 echo "PASS: utilities role exists"
 
-for pkg in cron htop tmux jq tree unzip zip rsync lsof strace; do
+for pkg in cron htop tmux jq tree unzip zip rsync lsof strace zsh fonts-powerline; do
     if grep -q "$pkg" roles/utilities/tasks/main.yml; then
         echo "PASS: utilities role references $pkg"
     else
