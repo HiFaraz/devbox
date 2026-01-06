@@ -12,7 +12,7 @@ echo "PASS: playbook.yml exists"
 
 # Test: Playbook includes all required roles
 for role in base libraries networking utilities databases editors cloud docker nvm pyenv rbenv rustup goenv sdkman; do
-    if grep -q "\- $role" playbook.yml; then
+    if grep -q "role: $role" playbook.yml; then
         echo "PASS: playbook.yml includes $role role"
     else
         echo "FAIL: playbook.yml does not include $role role"

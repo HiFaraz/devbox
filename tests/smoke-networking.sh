@@ -32,7 +32,7 @@ if [ $? -ne 0 ]; then
 fi
 echo "PASS: gpg works"
 
-ufw --version >/dev/null 2>&1
+sudo ufw --version >/dev/null 2>&1
 if [ $? -ne 0 ]; then
     echo "FAIL: ufw --version failed"
     exit 1

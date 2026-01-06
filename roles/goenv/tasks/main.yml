@@ -2,5 +2,5 @@
 - name: Install goenv
   git:
     repo: https://github.com/go-nv/goenv.git
-    dest: "{{ ansible_env.HOME }}/.goenv"
+    dest: "{{ user_home }}/.goenv"
     version: master

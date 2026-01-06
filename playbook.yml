@@ -17,6 +17,8 @@
   hosts: localhost
   connection: local
   become: false
+  vars:
+    user_home: "{{ lookup('env', 'HOME') }}"
   roles:
     - { role: nvm, tags: ['nvm', 'user', 'languages'] }
     - { role: pyenv, tags: ['pyenv', 'user', 'languages'] }
