@@ -3,5 +3,15 @@
   shell: |
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
   args:
-    creates: "{{ ansible_env.HOME }}/.config/nvm/nvm.sh"
+    creates: "{{ user_home }}/.config/nvm/nvm.sh"
   changed_when: false
+
+- name: Configure nvm for zsh
+  blockinfile:
+    path: "{{ user_home }}/.zshrc"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK - NVM"
+    block: |
+      export NVM_DIR="$HOME/.config/nvm"
+      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+      [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+    create: true
