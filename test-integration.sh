@@ -177,3 +177,11 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 echo "PASS: fonts-powerline installed"
+
+# Smoke test: whois --version works
+whois --version >/dev/null 2>&1
+if [ $? -ne 0 ]; then
+    echo "FAIL: whois not installed"
+    exit 1
+fi
+echo "PASS: whois installed"

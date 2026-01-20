@@ -18,4 +18,5 @@
       - dnsutils
       - iputils-ping
       - traceroute
+      - whois
     state: present
