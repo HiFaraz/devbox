@@ -20,3 +20,21 @@
       - traceroute
       - whois
     state: present
+
+- name: Add netbird apt signing key
+  get_url:
+    url: https://pkgs.netbird.io/debian/public.key
+    dest: /usr/share/keyrings/netbird-archive-keyring.asc
+    mode: '0644'
+
+- name: Add netbird apt repository
+  apt_repository:
+    repo: "deb [signed-by=/usr/share/keyrings/netbird-archive-keyring.asc] https://pkgs.netbird.io/debian stable main"
+    filename: netbird
+    state: present
+
+- name: Install netbird
+  apt:
+    name: netbird
+    state: present
+    update_cache: true

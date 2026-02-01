@@ -18,3 +18,11 @@ for pkg in openssh-client openssh-server curl wget ca-certificates gnupg ufw net
         exit 1
     fi
 done
+
+# Netbird VPN
+if grep -q "netbird" roles/networking/tasks/main.yml; then
+    echo "PASS: networking role references netbird"
+else
+    echo "FAIL: networking role does not reference netbird"
+    exit 1
+fi
